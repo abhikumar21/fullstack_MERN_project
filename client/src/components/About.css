@@ -1,0 +1,30 @@
+
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(30deg, rgb(172, 141, 195),rgb(203, 193, 86) , rgba(12, 115, 4, 0.189));
+}
+
+.form{
+    display: grid;
+    
+    max-width: 80%;
+    box-shadow: 2.5px 5px 20px rgb(84, 39, 84);
+    /* displaces in x-direction, y-direction, 
+      blurr effect , color of blur*/
+    background-color: aliceblue;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.image img{
+    height: 80%;
+    width: 80%;
+}
+
