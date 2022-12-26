@@ -13,11 +13,11 @@ const userSchema = new mongoose.Schema({
         type: Number,
         required:true
     },
-    work: {
+    password: {
         type: String,
         required:true
     },
-    password: {
+    cpassword: {
         type: String,
         required:true
     }
