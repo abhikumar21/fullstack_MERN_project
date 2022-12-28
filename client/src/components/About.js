@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import './About.css'
 import dp from '../images/dp.jpg'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -6,6 +7,18 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 
 const About = () => {
+
+   const [userData, setUserData] = useState();
+
+
+
+
+
+
+
+
+
+
   return (
     <div className='container emp-profile'>
       <form className="form" method="">

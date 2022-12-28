@@ -93,7 +93,7 @@ router.post('/login', async(req, res)=> {
     }
     const userLogin = await User.findOne({email:email});
       if(!userLogin) {
-          res.json({error:"no previous data found"})
+          res.status(400).json({error:"no previous data found"})
         }
         else{
         
@@ -101,7 +101,7 @@ router.post('/login', async(req, res)=> {
           res.json({message:"user login successful"});
          }
          else{
-             res.json({error:"invalid credintials"});
+             res.status(400).json({error:"invalid credintials"});
          }  
       }
 
