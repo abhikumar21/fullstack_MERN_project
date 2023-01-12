@@ -1,6 +1,8 @@
 const { request } = require('express');
 const express=require('express');
 const router=express.Router();
+const jwt = require('jsonwebtoken');
+const authenticate = require('../middleware/authenticate');
 
 require('../db/conn.js');
 const User=require("../model/userSchema");
@@ -9,7 +11,7 @@ const User=require("../model/userSchema");
 router.get('/', (req, res)=> {
     res.send('hello from router');
 });
-
+ 
 
 // promises    /////////////////////////////////////////////////////////////////////////////////////
 // router.post('/register', (req, res) => {
@@ -84,9 +86,8 @@ router.post('/register', async(req, res) => {
 
 router.post('/login', async(req, res)=> {
    
-
-
   try {
+  
     const { email, password } = req.body; 
     if(!email || !password) {
         return res.status(400).json({error: "please fill the data"});
@@ -99,14 +100,20 @@ router.post('/login', async(req, res)=> {
         
         if(password==userLogin.password) {
           res.json({message:"user login successful"});
+          const token = await userLogin.generateAuthToken();
+          console.log(token);
+
+          res.cookie("jwttoken", token, {
+            expires:new Date(Date.now() + 25892000000),
+            httpOnly:true
+          })
+          // jwt.sign
+          // jwt.verify
          }
          else{
              res.status(400).json({error:"invalid credintials"});
          }  
       }
-
-   
-
 
 
   } catch (error) {
@@ -114,7 +121,11 @@ router.post('/login', async(req, res)=> {
   }
     
    
-})
+});
+
+router.get('/about',  authenticate, (req, res) => {
+  res.send('This is about')
+});
 
 
 

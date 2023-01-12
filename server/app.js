@@ -21,10 +21,9 @@ const PORT= process.env.PORT;
 
 
 //
-const middleware = function (req, res, next) {
-  console.log('LOGGED');
-
-}
+// const middleware = function (req, res, next) {
+//   console.log('LOGGED');
+// }
 
 
 // respond with "hello world" when a GET request is made to the homepage
@@ -32,9 +31,10 @@ const middleware = function (req, res, next) {
 //   res.send('hello world')
 //   next();
 // });
-app.get('/about',middleware,  (req, res) => {
-    res.send('This is about')
-  });
+// app.get('/about',  (req, res) => {
+//     res.send('This is about')
+//   });
+
   app.get('/contact', (req, res) => {
     res.send('This is contact')
   });

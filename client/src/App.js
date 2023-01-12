@@ -14,7 +14,7 @@ import './App.css'
 const App = () => {
   return (
     <div>
-      <Navbar/>
+      <Navbar/> 
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/signup" element={<Signup/>} />
